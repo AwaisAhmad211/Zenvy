@@ -43,9 +43,10 @@ export function Navbar({
           {/* ── Logo ── */}
           <Link
             href="/"
+            prefetch={false}
             className="flex items-center gap-1.5 font-display text-[22px] font-bold text-text tracking-[-0.5px] whitespace-nowrap shrink-0"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
+            <div className="w-8 h-8 bg-linear-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
               ✈️
             </div>
             Zenvy<span className="text-brand">Intl</span>
@@ -76,7 +77,7 @@ export function Navbar({
             <button
               onClick={() => setMobileMenuOpen(true)}
               className={cn(
-                "md:hidden w-[42px] h-[42px] rounded-xl",
+                "md:hidden w-10.5 h-10.5 rounded-xl",
                 "border border-[rgba(11,46,51,0.11)] bg-[rgba(11,46,51,0.04)]",
                 "flex items-center justify-center text-text",
                 "hover:bg-[rgba(11,46,51,0.08)] transition-colors"

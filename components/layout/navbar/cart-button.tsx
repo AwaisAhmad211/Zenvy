@@ -25,7 +25,7 @@ export function CartButton() {
     <Link
       href="/cart"
       className={cn(
-        "relative w-[42px] h-[42px] rounded-xl",
+        "relative w-10.5 h-10.5 rounded-xl",
         "border border-[rgba(11,46,51,0.11)] bg-[rgba(11,46,51,0.04)]",
         "flex items-center justify-center text-text",
         "hover:bg-[rgba(11,46,51,0.08)] hover:border-[rgba(11,46,51,0.20)] hover:-translate-y-px",

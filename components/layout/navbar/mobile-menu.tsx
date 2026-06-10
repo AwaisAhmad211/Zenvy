@@ -70,7 +70,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {/* Drawer */}
       <aside
         className={cn(
-          "fixed top-0 left-0 bottom-0 z-50 w-[300px]",
+          "fixed top-0 left-0 bottom-0 z-50 w-75",
           "bg-white border-r border-[rgba(11,46,51,0.11)]",
           "flex flex-col overflow-y-auto",
           "transition-transform duration-300 ease-smooth",
@@ -82,10 +82,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(11,46,51,0.11)]">
           <Link
             href="/"
+            prefetch={false}
             onClick={onClose}
             className="flex items-center gap-2 font-display text-[22px] font-bold text-text tracking-[-0.5px]"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
+            <div className="w-8 h-8 bg-linear-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
               ✈️
             </div>
             Zenvy<span className="text-brand">Intl</span>
@@ -111,6 +112,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 onClick={onClose}
                 className={cn(
                   "block px-4 py-3 rounded-xl",
@@ -132,6 +134,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 onClick={onClose}
                 className={cn(
                   "block px-4 py-3 rounded-xl",
@@ -153,6 +156,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={false}
                 onClick={onClose}
                 className={cn(
                   "block px-4 py-3 rounded-xl",
@@ -171,10 +175,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <div className="px-4 pb-6">
           <Link
             href="/request"
+            prefetch={false}
             onClick={onClose}
             className={cn(
               "flex items-center justify-center gap-2 w-full px-5 py-3",
-              "bg-gradient-to-r from-brand to-[#93B1B5]",
+              "bg-linear-to-r from-brand to-[#93B1B5]",
               "text-white text-sm font-semibold rounded-xl",
               "shadow-[0_4px_20px_rgba(11,46,51,0.2)]",
               "hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(11,46,51,0.25)]",
