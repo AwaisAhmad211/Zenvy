@@ -9,40 +9,51 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ── Design System: Clean Light Coastal Palette ──
         bg: {
-          DEFAULT: "#ffffff",
-          2: "#f4f9fa",
-          3: "#e6f2f4",
+          DEFAULT: "var(--bg)",
+          2: "var(--bg2)",
+          3: "var(--bg3)",
         },
         surface: {
-          DEFAULT: "#ffffff",
-          2: "#edf5f7",
+          DEFAULT: "var(--surface)",
+          2: "var(--surface2)",
+        },
+        glass: {
+          DEFAULT: "var(--glass)",
+          2: "var(--glass2)",
+        },
+        border: {
+          DEFAULT: "var(--border)",
+          2: "var(--border2)",
         },
         brand: {
-          DEFAULT: "#0B2E33",
-          2: "#0d3b42",
+          DEFAULT: "var(--blue)",
+          2: "var(--blue2)",
+          glow: "var(--blue-glow)",
         },
-        mid: "#93B1B5",
-        light: "#ADD8E6",
+        mid: "var(--mid)",
+        light: "var(--light)",
         text: {
-          DEFAULT: "#0B2E33",
-          2: "#4a6e72",
-          3: "#898989",
+          DEFAULT: "var(--text)",
+          2: "var(--text2)",
+          3: "var(--text3)",
         },
         amber: {
-          brand: "#D97706",
+          brand: "var(--amber)",
+          glow: "var(--amber-glow)",
         },
         green: {
-          brand: "#059669",
+          brand: "var(--green)",
+          glow: "var(--green-glow)",
         },
         red: {
-          brand: "#DC2626",
+          brand: "var(--red)",
+          glow: "var(--red-glow)",
         },
       },
       fontFamily: {
-        display: ["var(--font-clash)", "sans-serif"],
-        body: ["var(--font-cabinet)", "sans-serif"],
+        display: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
       },
       borderRadius: {
         sm: "10px",
@@ -50,9 +61,10 @@ const config: Config = {
         lg: "24px",
       },
       boxShadow: {
-        card: "0 4px 24px rgba(11,46,51,0.10)",
-        brand: "0 6px 24px rgba(11,46,51,0.18)",
+        card: "var(--shadow)",
+        brand: "var(--shadow-blue)",
         dropdown: "0 12px 40px rgba(11,46,51,0.15)",
+        focus: "0 0 0 3px var(--blue-glow)",
       },
       backdropBlur: {
         navbar: "20px",

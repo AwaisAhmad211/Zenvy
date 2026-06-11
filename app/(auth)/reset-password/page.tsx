@@ -60,7 +60,7 @@ export default function ResetPasswordPage() {
     return (
       <div className="text-center py-4 animate-fade-in">
         {/* Success Tick Icon */}
-        <div className="w-12 h-12 bg-[rgba(147,177,181,0.2)] text-[#0B2E33] rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 bg-mid/20 text-text rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -77,10 +77,10 @@ export default function ResetPasswordPage() {
           </svg>
         </div>
 
-        <h2 className="text-xl font-semibold mb-2 text-[#0B2E33]">
+        <h2 className="text-xl font-semibold mb-2 text-text">
           Password Updated
         </h2>
-        <p className="text-sm text-[#898989] mb-6 leading-relaxed">
+        <p className="text-sm text-text-3 mb-6 leading-relaxed">
           Your password has been changed successfully. You can now log in with
           your new password.
         </p>
@@ -88,7 +88,7 @@ export default function ResetPasswordPage() {
         {/* Proceed to Login Button */}
         <Link
           href="/login"
-          className="inline-block w-full text-center py-2.5 bg-[#0B2E33] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-sm"
+          className="inline-block w-full text-center py-2.5 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand"
         >
           Go to Login
         </Link>
@@ -99,17 +99,17 @@ export default function ResetPasswordPage() {
   // 5. Default Reset Password Form Screen
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-2 text-[#0B2E33]">
+      <h2 className="text-xl font-semibold mb-2 text-text">
         Reset Password
       </h2>
-      <p className="text-sm text-[#898989] mb-6 leading-relaxed">
+      <p className="text-sm text-text-3 mb-6 leading-relaxed">
         Choose a strong and secure new password for your account.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* New Password Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             New Password
           </label>
           <div className="relative">
@@ -121,10 +121,10 @@ export default function ResetPasswordPage() {
                 setPassword(e.target.value);
                 if (errors.password) setErrors({ ...errors, password: "" });
               }}
-              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
                 errors.password
-                  ? "border-red-500 focus:border-red-500"
-                  : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                  ? "border-red-brand focus:border-red-brand"
+                  : "border-border focus:border-mid"
               }`}
               placeholder="••••••••"
             />
@@ -132,7 +132,7 @@ export default function ResetPasswordPage() {
               type="button"
               disabled={isLoading}
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#0B2E33] transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-3 hover:text-text transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
             >
               {showPassword ? "Hide" : "Show"}
             </button>
@@ -146,7 +146,7 @@ export default function ResetPasswordPage() {
 
         {/* Confirm New Password Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Confirm New Password
           </label>
           <div className="relative">
@@ -159,10 +159,10 @@ export default function ResetPasswordPage() {
                 if (errors.confirmPassword)
                   setErrors({ ...errors, confirmPassword: "" });
               }}
-              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
                 errors.confirmPassword
-                  ? "border-red-500 focus:border-red-500"
-                  : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                  ? "border-red-brand focus:border-red-brand"
+                  : "border-border focus:border-mid"
               }`}
               placeholder="••••••••"
             />
@@ -170,7 +170,7 @@ export default function ResetPasswordPage() {
               type="button"
               disabled={isLoading}
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#0B2E33] transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-3 hover:text-text transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
             >
               {showConfirmPassword ? "Hide" : "Show"}
             </button>
@@ -186,7 +186,7 @@ export default function ResetPasswordPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 bg-[#0B2E33] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-2.5 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
@@ -219,11 +219,11 @@ export default function ResetPasswordPage() {
       </form>
 
       {/* Cancel Link */}
-      <p className="text-sm text-center text-[#898989] mt-6">
+      <p className="text-sm text-center text-text-3 mt-6">
         Nevermind,{" "}
         <Link
           href="/login"
-          className="text-[#93B1B5] hover:underline font-medium"
+          className="text-mid hover:underline font-medium"
         >
           cancel and go back
         </Link>

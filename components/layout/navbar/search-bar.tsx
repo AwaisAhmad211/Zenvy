@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,34 +18,24 @@ const MOCK_RESULTS: SearchResult[] = [
 export function SearchBar() {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const debouncedQuery = useDebounce(query, 300);
+  const trimmedDebouncedQuery = debouncedQuery.trim();
 
-  // ── Fetch results when debounced query changes ──
-  useEffect(() => {
-    if (debouncedQuery.trim().length < 2) {
-      setResults([]);
-      setIsOpen(false);
-      return;
+  const results = useMemo(() => {
+    if (trimmedDebouncedQuery.length < 2) {
+      return [];
     }
 
-    setIsLoading(true);
-
-    // TODO: Replace with real API call
-    // apiClient.get(`/products/search?q=${debouncedQuery}`)
-    const filtered = MOCK_RESULTS.filter((r) =>
-      r.title.toLowerCase().includes(debouncedQuery.toLowerCase())
+    return MOCK_RESULTS.filter((result) =>
+      result.title.toLowerCase().includes(trimmedDebouncedQuery.toLowerCase()),
     );
-    setTimeout(() => {
-      setResults(filtered);
-      setIsOpen(true);
-      setIsLoading(false);
-    }, 200);
-  }, [debouncedQuery]);
+  }, [trimmedDebouncedQuery]);
+
+  const isLoading =
+    query.trim().length >= 2 && query.trim() !== trimmedDebouncedQuery;
 
   // ── Close on outside click ──
   useEffect(() => {
@@ -61,25 +51,23 @@ export function SearchBar() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!query.trim()) return;
-    setIsOpen(false);
     router.push(`/search?q=${encodeURIComponent(query.trim())}`);
   }
 
   function handleSelect(href: string) {
-    setIsOpen(false);
     setQuery("");
     router.push(href);
   }
 
   function handleClear() {
     setQuery("");
-    setResults([]);
-    setIsOpen(false);
     inputRef.current?.focus();
   }
 
+  const showDropdown = query.trim().length >= 2 && (isLoading || results.length > 0);
+
   return (
-    <div ref={containerRef} className="relative flex-1 max-w-[480px]">
+    <div ref={containerRef} className="relative flex-1 md:max-w-120">
       <form onSubmit={handleSubmit}>
         {/* Input */}
         <div className="relative">
@@ -92,14 +80,13 @@ export function SearchBar() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onFocus={() => results.length > 0 && setIsOpen(true)}
             placeholder="Search products, stores, brands…"
             className={cn(
               "w-full py-2.5 pl-10 pr-9",
-              "bg-[rgba(11,46,51,0.08)] border border-[rgba(11,46,51,0.11)]",
+              "bg-glass-2 border border-border",
               "rounded-xl text-sm text-text font-body placeholder:text-text-3",
               "outline-none transition-all duration-200",
-              "focus:border-brand focus:bg-white focus:shadow-[0_0_0_3px_rgba(11,46,51,0.15)]"
+              "focus:border-brand focus:bg-surface focus:shadow-focus"
             )}
           />
           {/* Clear button */}
@@ -116,18 +103,18 @@ export function SearchBar() {
       </form>
 
       {/* Dropdown */}
-      {isOpen && (
+      {showDropdown && (
         <div
           className={cn(
             "absolute top-[calc(100%+8px)] left-0 right-0 z-50",
-            "bg-white border border-[rgba(11,46,51,0.20)] rounded-2xl overflow-hidden",
+            "bg-surface border border-border-2 rounded-2xl overflow-hidden",
             "shadow-dropdown",
             "animate-in fade-in-0 slide-in-from-top-2 duration-200"
           )}
         >
           {isLoading ? (
             <div className="flex items-center gap-3 px-4 py-3 text-sm text-text-3">
-              <div className="w-4 h-4 border-2 border-[rgba(11,46,51,0.11)] border-t-brand rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-border border-t-brand rounded-full animate-spin" />
               Searching…
             </div>
           ) : results.length > 0 ? (
@@ -138,10 +125,10 @@ export function SearchBar() {
                   onClick={() => handleSelect(item.href)}
                   className={cn(
                     "w-full flex items-center gap-3 px-4 py-3",
-                    "hover:bg-[rgba(11,46,51,0.08)] transition-colors text-left"
+                      "hover:bg-glass-2 transition-colors text-left"
                   )}
                 >
-                  <div className="w-10 h-10 bg-surface-2 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                    <div className="w-10 h-10 bg-surface-2 rounded-xl flex items-center justify-center text-xl shrink-0">
                     {item.emoji}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -155,21 +142,21 @@ export function SearchBar() {
                 onClick={() => handleSelect(`/search?q=${encodeURIComponent(query)}`)}
                 className={cn(
                   "w-full flex items-center gap-3 px-4 py-3",
-                  "border-t border-[rgba(11,46,51,0.11)]",
-                  "hover:bg-[rgba(11,46,51,0.08)] transition-colors text-left"
+                  "border-t border-border",
+                  "hover:bg-glass-2 transition-colors text-left"
                 )}
               >
-                <div className="w-10 h-10 bg-surface-2 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-surface-2 rounded-xl flex items-center justify-center shrink-0">
                   <Search size={16} className="text-text-3" />
                 </div>
                 <p className="text-sm font-semibold text-brand">
-                  See all results for "{query}" →
+                  See all results for &quot;{query}&quot; →
                 </p>
               </button>
             </>
           ) : (
             <div className="px-4 py-3 text-sm text-text-3">
-              No results for "{query}"
+              No results for &quot;{query}&quot;
             </div>
           )}
         </div>
