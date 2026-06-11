@@ -43,7 +43,7 @@ export default function ForgotPasswordPage() {
     return (
       <div className="text-center py-4 animate-fade-in">
         {/* Success Icon */}
-        <div className="w-12 h-12 bg-[rgba(147,177,181,0.2)] text-[#0B2E33] rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="w-12 h-12 bg-mid/20 text-text rounded-full flex items-center justify-center mx-auto mb-4">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -60,19 +60,19 @@ export default function ForgotPasswordPage() {
           </svg>
         </div>
 
-        <h2 className="text-xl font-semibold mb-2 text-[#0B2E33]">
+        <h2 className="text-xl font-semibold mb-2 text-text">
           Check your email
         </h2>
-        <p className="text-sm text-[#898989] mb-6 leading-relaxed">
+        <p className="text-sm text-text-3 mb-6 leading-relaxed">
           We have sent a password reset link to{" "}
-          <span className="font-medium text-[#0B2E33]">{email}</span>. Please
+          <span className="font-medium text-text">{email}</span>. Please
           check your inbox or spam folder.
         </p>
 
         {/* Back to login option */}
         <Link
           href="/login"
-          className="text-sm text-[#93B1B5] hover:underline font-medium block"
+          className="text-sm text-mid hover:underline font-medium block"
         >
           Back to Login
         </Link>
@@ -83,18 +83,18 @@ export default function ForgotPasswordPage() {
   // 5. Default Forgot Password Form Screen
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-2 text-[#0B2E33]">
+      <h2 className="text-xl font-semibold mb-2 text-text">
         Forgot Password?
       </h2>
-      <p className="text-sm text-[#898989] mb-6 leading-relaxed">
-        Enter your email address and we'll send you a link to reset your
+      <p className="text-sm text-text-3 mb-6 leading-relaxed">
+        Enter your email address and we&apos;ll send you a link to reset your
         password.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Email Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Email Address
           </label>
           <input
@@ -105,15 +105,15 @@ export default function ForgotPasswordPage() {
               setEmail(e.target.value);
               if (error) setError(""); // Type karne par error foran clear ho jaye
             }}
-            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
               error
-                ? "border-red-500 focus:border-red-500"
-                : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                ? "border-red-brand focus:border-red-brand"
+                : "border-border focus:border-mid"
             }`}
             placeholder="you@example.com"
           />
           {error && (
-            <p className="text-xs text-red-500 mt-1 font-medium">{error}</p>
+            <p className="text-xs text-red-brand mt-1 font-medium">{error}</p>
           )}
         </div>
 
@@ -121,7 +121,7 @@ export default function ForgotPasswordPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 bg-[#0B2E33] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-2.5 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
@@ -153,11 +153,11 @@ export default function ForgotPasswordPage() {
         </button>
       </form>
 
-      <p className="text-sm text-center text-[#898989] mt-6">
+      <p className="text-sm text-center text-text-3 mt-6">
         Remember your password? {/* Fixed nested path */}
         <Link
           href="login"
-          className="text-[#93B1B5] hover:underline font-medium"
+          className="text-mid hover:underline font-medium"
         >
           Back to Login
         </Link>

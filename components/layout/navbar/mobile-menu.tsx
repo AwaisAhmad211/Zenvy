@@ -57,7 +57,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {/* Backdrop */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[rgba(11,46,51,0.50)] backdrop-blur-sm",
+          "fixed inset-0 z-40 bg-blue/50 backdrop-blur-sm",
           "transition-opacity duration-250",
           isOpen
             ? "opacity-100 pointer-events-auto"
@@ -71,7 +71,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <aside
         className={cn(
           "fixed top-0 left-0 bottom-0 z-50 w-75",
-          "bg-white border-r border-[rgba(11,46,51,0.11)]",
+          "bg-surface border-r border-border",
           "flex flex-col overflow-y-auto",
           "transition-transform duration-300 ease-smooth",
           isOpen ? "translate-x-0" : "-translate-x-full",
@@ -79,7 +79,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         aria-label="Mobile navigation"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[rgba(11,46,51,0.11)]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border">
           <Link
             href="/"
             prefetch={false}
@@ -94,9 +94,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <button
             onClick={onClose}
             className={cn(
-              "w-9 h-9 rounded-xl bg-[rgba(11,46,51,0.08)]",
+              "w-9 h-9 rounded-xl bg-glass-2",
               "flex items-center justify-center text-text-2",
-              "hover:bg-[rgba(11,46,51,0.12)] transition-colors",
+              "hover:bg-glass-2 transition-colors",
             )}
             aria-label="Close menu"
           >
@@ -117,7 +117,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className={cn(
                   "block px-4 py-3 rounded-xl",
                   "text-[15px] font-medium text-text-2",
-                  "hover:bg-[rgba(11,46,51,0.08)] hover:text-brand",
+                  "hover:bg-glass-2 hover:text-brand",
                   "transition-colors duration-150",
                 )}
               >
@@ -126,7 +126,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ))}
           </div>
 
-          <div className="h-px bg-[rgba(11,46,51,0.11)] my-3" />
+          <div className="h-px bg-border my-3" />
 
           {/* Account Links */}
           <div className="flex flex-col gap-1 mb-4">
@@ -139,7 +139,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className={cn(
                   "block px-4 py-3 rounded-xl",
                   "text-[15px] font-medium text-text-2",
-                  "hover:bg-[rgba(11,46,51,0.08)] hover:text-brand",
+                  "hover:bg-glass-2 hover:text-brand",
                   "transition-colors duration-150",
                 )}
               >
@@ -148,7 +148,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ))}
           </div>
 
-          <div className="h-px bg-[rgba(11,46,51,0.11)] my-3" />
+          <div className="h-px bg-border my-3" />
 
           {/* More Links */}
           <div className="flex flex-col gap-1">
@@ -161,7 +161,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 className={cn(
                   "block px-4 py-3 rounded-xl",
                   "text-[15px] font-medium text-text-2",
-                  "hover:bg-[rgba(11,46,51,0.08)] hover:text-brand",
+                  "hover:bg-glass-2 hover:text-brand",
                   "transition-colors duration-150",
                 )}
               >
@@ -179,10 +179,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             onClick={onClose}
             className={cn(
               "flex items-center justify-center gap-2 w-full px-5 py-3",
-              "bg-linear-to-r from-brand to-[#93B1B5]",
+              "bg-linear-to-r from-brand to-mid",
               "text-white text-sm font-semibold rounded-xl",
-              "shadow-[0_4px_20px_rgba(11,46,51,0.2)]",
-              "hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(11,46,51,0.25)]",
+              "shadow-brand",
+              "hover:-translate-y-0.5 hover:shadow-brand",
               "transition-all duration-200",
             )}
           >

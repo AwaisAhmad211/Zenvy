@@ -67,17 +67,17 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4 text-[#0B2E33]">
+      <h2 className="text-xl font-semibold mb-4 text-text">
         Create an Account
       </h2>
-      <p className="text-sm text-[#898989] mb-6">
+      <p className="text-sm text-text-3 mb-6">
         Join Zenvy today and start shopping globally.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Full Name Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Full Name
           </label>
           <input
@@ -88,15 +88,15 @@ export default function RegisterPage() {
               setName(e.target.value);
               if (errors.name) setErrors({ ...errors, name: "" }); // Type karne par error hide ho jaye
             }}
-            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
               errors.name
-                ? "border-red-500 focus:border-red-500"
-                : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                ? "border-red-brand focus:border-red-brand"
+                : "border-border focus:border-mid"
             }`}
             placeholder="John Doe"
           />
           {errors.name && (
-            <p className="text-xs text-red-500 mt-1 font-medium">
+            <p className="text-xs text-red-brand mt-1 font-medium">
               {errors.name}
             </p>
           )}
@@ -104,7 +104,7 @@ export default function RegisterPage() {
 
         {/* Email Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Email
           </label>
           <input
@@ -115,15 +115,15 @@ export default function RegisterPage() {
               setEmail(e.target.value);
               if (errors.email) setErrors({ ...errors, email: "" });
             }}
-            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
               errors.email
-                ? "border-red-500 focus:border-red-500"
-                : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                ? "border-red-brand focus:border-red-brand"
+                : "border-border focus:border-mid"
             }`}
             placeholder="you@example.com"
           />
           {errors.email && (
-            <p className="text-xs text-red-500 mt-1 font-medium">
+            <p className="text-xs text-red-brand mt-1 font-medium">
               {errors.email}
             </p>
           )}
@@ -131,7 +131,7 @@ export default function RegisterPage() {
 
         {/* Password Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Password
           </label>
           <div className="relative">
@@ -143,10 +143,10 @@ export default function RegisterPage() {
                 setPassword(e.target.value);
                 if (errors.password) setErrors({ ...errors, password: "" });
               }}
-              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
                 errors.password
-                  ? "border-red-500 focus:border-red-500"
-                  : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                  ? "border-red-brand focus:border-red-brand"
+                  : "border-border focus:border-mid"
               }`}
               placeholder="••••••••"
             />
@@ -155,13 +155,13 @@ export default function RegisterPage() {
               type="button"
               disabled={isLoading}
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#0B2E33] transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-3 hover:text-text transition-colors focus:outline-none text-xs font-medium disabled:opacity-50"
             >
               {showPassword ? "Hide" : "Show"}
             </button>
           </div>
           {errors.password && (
-            <p className="text-xs text-red-500 mt-1 font-medium">
+            <p className="text-xs text-red-brand mt-1 font-medium">
               {errors.password}
             </p>
           )}
@@ -171,7 +171,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 mt-2 bg-[#0B2E33] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-2.5 mt-2 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
@@ -203,11 +203,11 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <p className="text-sm text-center text-[#898989] mt-6">
+      <p className="text-sm text-center text-text-3 mt-6">
         Already have an account? {/* Fixed nested path */}
         <Link
           href="/login"
-          className="text-[#93B1B5] hover:underline font-medium"
+          className="text-mid hover:underline font-medium"
         >
           Sign In
         </Link>

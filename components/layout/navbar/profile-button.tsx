@@ -36,9 +36,9 @@ export function ProfileButton({ user }: ProfileButtonProps) {
       href="/login"
       className={cn(
         "w-10.5 h-10.5 rounded-xl",
-        "border border-[rgba(11,46,51,0.11)] bg-[rgba(11,46,51,0.04)]",
+        "border border-border bg-glass",
         "flex items-center justify-center text-text",
-        "hover:bg-[rgba(11,46,51,0.08)] hover:border-[rgba(11,46,51,0.20)] hover:-translate-y-px",
+        "hover:bg-glass-2 hover:border-border-2 hover:-translate-y-px",
         "transition-all duration-200"
       )}
       aria-label="Sign in"

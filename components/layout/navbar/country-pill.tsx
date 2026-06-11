@@ -26,10 +26,10 @@ export function CountryPill({ countryCode = "pk" }: CountryPillProps) {
       href="/stores"
       className={cn(
         "flex items-center gap-1.5 px-3.5 py-2",
-        "border border-[rgba(11,46,51,0.11)] rounded-xl",
-        "bg-[rgba(11,46,51,0.04)] text-text",
+        "border border-border rounded-xl",
+        "bg-glass text-text",
         "text-[13px] font-medium",
-        "hover:border-brand hover:bg-[rgba(11,46,51,0.08)]",
+        "hover:border-brand hover:bg-glass-2",
         "transition-all duration-200 whitespace-nowrap"
       )}
     >

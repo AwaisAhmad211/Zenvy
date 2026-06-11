@@ -57,14 +57,14 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4 text-[#0B2E33]">
+      <h2 className="text-xl font-semibold mb-4 text-text">
         Welcome Back
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Email Field */}
         <div>
-          <label className="block text-sm font-medium mb-1 text-[#0B2E33]">
+          <label className="block text-sm font-medium mb-1 text-text">
             Email Address
           </label>
           <input
@@ -75,15 +75,15 @@ export default function LoginPage() {
               setEmail(e.target.value);
               if (errors.email) setErrors({ ...errors, email: "" }); // Typing par error clear karein
             }}
-            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+            className={`w-full px-4 py-2 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
               errors.email
-                ? "border-red-500 focus:border-red-500"
-                : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                ? "border-red-brand focus:border-red-brand"
+                : "border-border focus:border-mid"
             }`}
             placeholder="you@example.com"
           />
           {errors.email && (
-            <p className="text-xs text-red-500 mt-1 font-medium">
+            <p className="text-xs text-red-brand mt-1 font-medium">
               {errors.email}
             </p>
           )}
@@ -92,12 +92,12 @@ export default function LoginPage() {
         {/* Password Field */}
         <div>
           <div className="flex justify-between items-center mb-1">
-            <label className="block text-sm font-medium text-[#0B2E33]">
+            <label className="block text-sm font-medium text-text">
               Password
             </label>
             <LinkNext
               href="/forgot-password"
-              className="text-xs text-[#93B1B5] hover:underline font-medium"
+              className="text-xs text-mid hover:underline font-medium"
             >
               Forgot Password?
             </LinkNext>
@@ -113,10 +113,10 @@ export default function LoginPage() {
                 setPassword(e.target.value);
                 if (errors.password) setErrors({ ...errors, password: "" }); // Typing par error clear karein
               }}
-              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-[#ffffff] disabled:opacity-60 disabled:cursor-not-allowed ${
+              className={`w-full px-4 py-2 pr-10 border rounded-lg focus:outline-none transition-colors bg-surface disabled:opacity-60 disabled:cursor-not-allowed ${
                 errors.password
-                  ? "border-red-500 focus:border-red-500"
-                  : "border-[rgba(11,46,51,0.15)] focus:border-[#93B1B5]"
+                  ? "border-red-brand focus:border-red-brand"
+                  : "border-border focus:border-mid"
               }`}
               placeholder="••••••••"
             />
@@ -126,7 +126,7 @@ export default function LoginPage() {
               type="button"
               disabled={isLoading}
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#898989] hover:text-[#0B2E33] transition-colors focus:outline-none text-xs font-medium"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-text-3 hover:text-text transition-colors focus:outline-none text-xs font-medium"
             >
               {showPassword ? "Hide" : "Show"}
             </button>
@@ -143,7 +143,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 mt-2 bg-[#0B2E33] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-2.5 mt-2 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
@@ -176,11 +176,11 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <p className="text-sm text-center text-[#898989] mt-6">
-        Don't have an account?{" "}
+      <p className="text-sm text-center text-text-3 mt-6">
+        {"Don't have an account?"}{" "}
         <LinkNext
           href="/register"
-          className="text-[#93B1B5] hover:underline font-medium"
+          className="text-mid hover:underline font-medium"
         >
           Register
         </LinkNext>
