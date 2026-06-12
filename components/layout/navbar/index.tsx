@@ -38,7 +38,7 @@ export function Navbar({
           prefetch={false}
           className="flex items-center gap-1.5 font-display text-[22px] font-bold text-text tracking-[-0.5px] whitespace-nowrap shrink-0"
         >
-          <div className="w-8 h-8 bg-linear-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
+          <div className="w-8 h-8 bg-[linear-gradient(135deg,#0B2E33,#93B1B5)] from-brand to-mid rounded-lg flex items-center justify-center text-base">
             ✈️
           </div>
           Zenvy<span className="text-brand">Intl</span>

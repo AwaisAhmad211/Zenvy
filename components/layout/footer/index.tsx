@@ -1,4 +1,3 @@
-// components/layout/footer/footer.tsx
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 // React Icons se Social Logos import kiye
@@ -68,9 +67,9 @@ function FooterColumn({
 // ─── Main Footer (Server Component) ─────────────────────
 export function Footer() {
   return (
-    <footer className="bg-bg-3 border-t border-border">
+    <footer className="bg-bg-3 border-t border-border w-full py-10">
       {/* ── Main Grid ── */}
-      <div className="max-w-container mx-auto px-4 md:px-8 py-14">
+      <div className="md:max-w-[90%] w-full mx-auto px-4 md:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
           {/* Col 1 — Brand & Socials */}
@@ -79,7 +78,7 @@ export function Footer() {
               href="/"
               className="flex items-center gap-1.5 font-display text-[22px] font-bold text-text tracking-[-0.5px] w-fit"
             >
-              <div className="w-8 h-8 bg-linear-to-br from-brand to-mid rounded-lg flex items-center justify-center text-base">
+              <div className="w-8 h-8 bg-[linear-gradient(135deg,#0B2E33,#93B1B5)] from-brand to-mid rounded-lg flex items-center justify-center text-base">
                 ✈️
               </div>
               Zenvy<span className="text-brand">Intl</span>
@@ -123,7 +122,7 @@ export function Footer() {
       </div>
 
       {/* ── Bottom Bar ── */}
-      <div className="border-t border-border">
+      <div className="border-t border-border w-full md:max-w-[90%] mx-auto">
         <div className="max-w-container mx-auto px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-text-3">
             © {new Date().getFullYear()}{" "}
