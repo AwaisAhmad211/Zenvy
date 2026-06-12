@@ -13,13 +13,15 @@ interface MainLayoutProps {
 export default function MainLayout({ children }: MainLayoutProps) {
   // TODO: Pass real session data once auth is wired
   return (
-    <div className="min-h-screen md:w-[90%] w-full mx-auto flex flex-col bg-white">
-      <Navbar
-        wishlistCount={2} // → from session/DB
-        countryCode="pk" // → from cookie or user preference
-        user={null} // → null = logged out, object = logged in
-      />
-      <main className="flex-1">{children}</main>
+    <div className="min-h-screen w-full mx-auto flex flex-col bg-white">
+      <div className="w-full md:max-w-[90%] m-auto">
+        <Navbar
+          wishlistCount={2} // → from session/DB
+          countryCode="pk" // → from cookie or user preference
+          user={null} // → null = logged out, object = logged in
+        />
+      </div>
+      <main className="flex-1 w-full md:w-[90%] mx-auto">{children}</main>
       <Footer />
     </div>
   );
