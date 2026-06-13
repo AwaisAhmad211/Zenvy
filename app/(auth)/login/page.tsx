@@ -83,7 +83,7 @@ export default function LoginPage() {
             placeholder="you@example.com"
           />
           {errors.email && (
-            <p className="text-xs text-red-brand mt-1 font-medium">
+            <p className="text-xs text-red-500 mt-1 font-medium">
               {errors.email}
             </p>
           )}
@@ -143,7 +143,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 mt-2 bg-brand text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full py-2.5 mt-2 bg-[linear-gradient(135deg,#0B2E33,#93B1B5)] text-white rounded-lg hover:opacity-90 font-medium transition-opacity shadow-brand disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
