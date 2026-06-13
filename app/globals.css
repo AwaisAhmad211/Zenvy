@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,7 +46,6 @@
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
-  --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
@@ -128,63 +125,6 @@
   --sidebar-accent-foreground: var(--blue);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--blue-glow);
-}
-
-.dark {
-  --bg: #071b1f;
-  --bg2: #0b2e33;
-  --bg3: #12373d;
-  --surface: #0b2e33;
-  --surface2: #113238;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass2: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.1);
-  --border2: rgba(255, 255, 255, 0.18);
-  --blue: #e5f2f4;
-  --blue2: #cce4e8;
-  --blue-glow: rgba(173, 216, 230, 0.14);
-  --amber: #f59e0b;
-  --amber-glow: rgba(245, 158, 11, 0.15);
-  --green: #10b981;
-  --green-glow: rgba(16, 185, 129, 0.15);
-  --red: #f87171;
-  --red-glow: rgba(248, 113, 113, 0.12);
-  --text: #f8fbfb;
-  --text2: #c8d6d8;
-  --text3: #9bb0b3;
-  --mid: #93b1b5;
-  --light: #add8e6;
-  --background: var(--bg);
-  --foreground: var(--text);
-  --card: var(--surface);
-  --card-foreground: var(--text);
-  --popover: var(--surface);
-  --popover-foreground: var(--text);
-  --primary: var(--light);
-  --primary-foreground: var(--blue);
-  --secondary: var(--surface2);
-  --secondary-foreground: var(--text);
-  --muted: var(--surface2);
-  --muted-foreground: var(--text3);
-  --accent: var(--surface2);
-  --accent-foreground: var(--text);
-  --destructive: var(--red);
-  --border: var(--border);
-  --input: var(--border2);
-  --ring: var(--light);
-  --chart-1: var(--light);
-  --chart-2: var(--mid);
-  --chart-3: var(--text2);
-  --chart-4: var(--blue2);
-  --chart-5: var(--blue);
-  --sidebar: var(--surface);
-  --sidebar-foreground: var(--text);
-  --sidebar-primary: var(--light);
-  --sidebar-primary-foreground: var(--blue);
-  --sidebar-accent: var(--surface2);
-  --sidebar-accent-foreground: var(--text);
-  --sidebar-border: var(--border);
-  --sidebar-ring: var(--light);
 }
 
 @layer base {
