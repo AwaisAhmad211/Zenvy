@@ -21,7 +21,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           user={null} // → null = logged out, object = logged in
         />
       </div>
-      <main className="flex-1 w-full md:w-[90%] mx-auto">{children}</main>
+      <main className="flex-1 w-full mx-auto">{children}</main>
       <Footer />
     </div>
   );

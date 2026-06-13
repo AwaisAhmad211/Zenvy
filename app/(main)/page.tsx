@@ -1,12 +1,13 @@
 import FeaturedProduct from "@/components/home/featured-product"
-import HeroSection from "@/components/home/hero-section"
+import Hero from "@/components/home/hero/Hero"
+// import HeroSection from "@/components/home/hero-section"
 import HowItWorks from "@/components/home/HowItWorks"
 
 export default function HomePage() {
   return (
     <div>
-      <h1>Home Page</h1>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <Hero />
       <br />
       <FeaturedProduct />
       <br />
