@@ -15,7 +15,7 @@ const fadeUp = (delay = 0) => ({
     transition: {
       duration: 0.5, 
       delay,
-      ease: [0.25, 0.46, 0.45, 0.94], // ✅ smoother ease (important)
+      ease: [0.25, 0.46, 0.45, 0.94] as any, // ✅ smoother ease (important)
     },
   },
 });
