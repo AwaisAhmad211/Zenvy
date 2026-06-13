@@ -138,3 +138,20 @@
     @apply font-sans;
   }
 }
+
+
+@layer utilities {
+  @keyframes marqueeSmooth {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marqueeSmooth {
+    animation: marqueeSmooth 25s linear infinite;
+    will-change: transform;
+  }
+}
